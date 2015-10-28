@@ -152,10 +152,10 @@ proto.positionSliderAtSelected = function() {
 proto.getPositionValue = function( position ) {
   if ( this.options.percentPosition ) {
     // percent position, round to 2 digits, like 12.34%
-    return ( Math.round( ( position / this.size.innerWidth ) * 10000 ) * 0.01 )+ '%';
+    return ( ( position / this.size.innerWidth ) * 10000 ) * 0.01 + '%';
   } else {
     // pixel positioning
-    return Math.round( position ) + 'px';
+    return position + 'px';
   }
 };
 
