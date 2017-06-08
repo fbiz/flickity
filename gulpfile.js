@@ -80,6 +80,7 @@ function rjsOptimize( options ) {
 
     gutil.log('RequireJS optimizing');
     requirejs.optimize( options, null, function( err ) {
+			gutil.log('RequireJS error:', err);
       var gulpError = new gutil.PluginError( 'requirejsOptimize', err.message );
       stream.emit( 'error', gulpError );
     });
