@@ -79,6 +79,11 @@ PrevNextButton.prototype._create = function() {
   element.className += this.isPrevious ? ' previous' : ' next';
   // prevent button from submitting form http://stackoverflow.com/a/10836076/182183
   element.setAttribute( 'type', 'button' );
+  // init as disabled
+  this.disable();
+
+  element.setAttribute( 'aria-label', this.isPrevious ? 'previous' : 'next' );
+
   Flickity.setUnselectable( element );
   // create arrow
   if ( supportsInlineSVG() ) {
@@ -104,7 +109,6 @@ PrevNextButton.prototype._create = function() {
 };
 
 PrevNextButton.prototype.activate = function() {
-  this.update();
   this.bindTap( this.element );
   // click events from keyboard
   eventie.bind( this.element, 'click', this );
